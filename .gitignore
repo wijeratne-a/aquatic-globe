@@ -2,11 +2,12 @@ node_modules/
 .next/
 dist/
 build/
-data/
+/data/
 *.sqlite
 *.sqlite3
 *.db
-tiles/
+/tiles/
+web/public/tiles/
 .DS_Store
 .env
 .env.local
