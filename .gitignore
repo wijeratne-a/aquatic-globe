@@ -1,0 +1,16 @@
+node_modules/
+.next/
+dist/
+build/
+data/
+*.sqlite
+*.sqlite3
+*.db
+tiles/
+.DS_Store
+.env
+.env.local
+__pycache__/
+*.pyc
+.Rhistory
+.RData
