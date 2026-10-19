@@ -1,6 +1,6 @@
-# AquaMaps → SoCal slice pipeline
+# AquaMaps → global species pipeline
 
-Batch pipeline for the Southern California Bight test slice: filter species from the AquaMaps SQLite database, export a web manifest, and pre-render static heatmap tiles (WebP, zoom 0–6).
+Batch pipeline: filter all AquaMaps species with quality thresholds, export a split web manifest (compact search index + per-species JSON), and pre-render static heatmap tiles (WebP, zoom 0–5).
 
 ## Prerequisites
 
@@ -14,48 +14,76 @@ Batch pipeline for the Southern California Bight test slice: filter species from
 Rscript pipeline/download_db.R
 
 # Option B: direct archive
+mkdir -p data
 curl -L -o data/am.db.bz2 https://archive.org/download/aquamapsdb/am.db.bz2
 bunzip2 -k data/am.db.bz2   # → data/am.db
 ```
 
-## SoCal species filter
+## Global species filter
 
-Script: `filter_socal.py`
+Script: `filter_species.py`
 
-**Bounding box (cell centers):** latitude 32°N–35°N, longitude 121°W–117°W (Southern California Bight).
+**Inclusion criteria (worldwide, no bounding box):**
 
-**Inclusion criteria:**
+1. Native half-degree cells with `Probability ≥ 0.08`
+2. At least **2** such cells per species
+3. Sum of `Probability` over those cells ≥ **0.75**
 
-1. At least **2** half-degree cells inside the bbox with `Probability ≥ 0.08`
-2. Sum of `Probability` over those bbox cells ≥ **0.75**
-3. Rank by descending bbox probability mass; keep up to **100** species (target band **50–100**)
+Species that fail are excluded (sparse or junk maps). There is no species count cap.
 
-If fewer than 50 species pass, the script relaxes to `sum ≥ 0.375` with ≥1 cell (still capped at 100).
+**Centroid** for camera fly-to: global probability-weighted mean of all qualifying cells (same `Probability ≥ 0.08` filter as above).
 
-**Centroid** for camera fly-to: global probability-weighted mean of all native cells for the species (not bbox-only).
+Outputs (gitignored; generated locally):
 
-Outputs:
+- `web/public/data/species-search-index.json` — compact search index (id, slug, scientific + common names only)
+- `web/public/data/species/{slug}.json` — full record (centroid, taxonomy, cell counts), lazy-loaded by the web app
+- `web/public/data/species-ids.txt`
 
-- `web/public/data/socal-species.json` — manifest + search index source
-- `web/public/data/socal-species-ids.txt`
-
-> Filter definition and resulting species count are updated in this README after each run (see **Last run** below).
+```bash
+python3 pipeline/filter_species.py data/am.db
+```
 
 ## Tile render
 
 ```bash
-python3 pipeline/filter_socal.py data/am.db
-python3 pipeline/render_tiles.py data/am.db
+python3 pipeline/filter_species.py data/am.db
+python3 pipeline/render_tiles.py data/am.db -j "$(nproc)"
 ```
 
 - Format: WebP RGBA, 256×256, XYZ Web Mercator
-- Zoom levels: **0–6** (native AquaMaps resolution is 0.5°; higher zooms add no detail)
+- Zoom levels: **0–5** (native AquaMaps resolution is 0.5°; z6+ adds little detail)
 - Output: `web/public/tiles/{slug}/{z}/{x}/{y}.webp`
 - Stats: `web/public/tiles/tile-stats.json`
 
+**Resumable:** progress is stored in `web/public/tiles/render-checkpoint.json` (`completedSlugs`). Re-run the same command to continue after interruption.
+
+**Parallel:** `-j N` (default: CPU count − 1). Checkpoint flush every 25 species (`--checkpoint-every`).
+
+This is a multi-hour job for the full species set; do not run serially on a laptop without resume.
+
+## Tile deploy artifacts
+
+Rendered tiles are **not** committed. Package batches for CDN upload:
+
+```bash
+chmod +x pipeline/package_tiles.sh
+BATCH_SIZE=500 pipeline/package_tiles.sh web/public/tiles web/public
+```
+
+Produces `web/public/tiles-batch-0001.tar.gz`, … each containing up to 500 species slug directories. Extract on the host or CDN origin:
+
+```bash
+tar -xzf tiles-batch-0001.tar.gz -C /var/www/tiles
+```
+
+The web app reads heatmaps from `VITE_TILES_BASE_URL` (default `/tiles`).
+
 ## Last run
 
-- **Date:** 2026-10-18 (branch `cursor/aquatic-globe-socal-slice-790b`)
-- **Species count:** 100 (bbox filter above; ranked by bbox probability mass, capped at 100)
-- **Tiles:** 128,994 WebP files, 28.24 MiB total (`web/public/tiles/tile-stats.json`)
-- **Zoom levels:** 0–6, 256×256 XYZ Web Mercator
+_(Updated after each full pipeline run.)_
+
+- **Date:** —
+- **Species count:** —
+- **Search index size:** —
+- **Tiles:** — WebP files, — total bytes (`web/public/tiles/tile-stats.json`)
+- **Zoom levels:** 0–5

@@ -1,18 +1,21 @@
 #!/usr/bin/env python3
-"""Render per-species heatmap XYZ tiles (WebP, zoom 0–6) from AquaMaps native cells."""
+"""Render per-species heatmap XYZ tiles (WebP, zoom 0–5) from AquaMaps native cells."""
 
 from __future__ import annotations
 
+import argparse
 import json
 import math
+import multiprocessing as mp
 import sqlite3
 import sys
+import time
 from collections import defaultdict
 from pathlib import Path
 
 from PIL import Image
 
-ZMIN, ZMAX = 0, 6
+ZMIN, ZMAX = 0, 5
 TILE_SIZE = 256
 ALPHA_FLOOR = 0.04
 
@@ -64,7 +67,6 @@ def write_tiles(cells: list[tuple[float, float, float]], out_root: Path, slug: s
             key = (x, y)
             if prob > tile_max[key]:
                 tile_max[key] = prob
-            # Spread half-degree footprint to adjacent tiles at higher zoom
             if z >= 3:
                 for dx, dy in ((0, 0), (1, 0), (-1, 0), (0, 1), (0, -1)):
                     nx, ny = x + dx, y + dy
@@ -92,32 +94,110 @@ def write_tiles(cells: list[tuple[float, float, float]], out_root: Path, slug: s
     return stats
 
 
-def main() -> None:
-    db_path = Path(sys.argv[1] if len(sys.argv) > 1 else "/workspace/data/am.db")
-    manifest_path = Path(
-        sys.argv[2] if len(sys.argv) > 2 else "/workspace/web/public/data/socal-species.json"
-    )
-    tiles_root = Path(sys.argv[3] if len(sys.argv) > 3 else "/workspace/web/public/tiles")
+def load_checkpoint(path: Path) -> dict:
+    if path.is_file():
+        return json.loads(path.read_text())
+    return {"completedSlugs": [], "species": [], "totalTiles": 0, "totalBytes": 0}
 
-    manifest = json.loads(manifest_path.read_text())
+
+def save_checkpoint(path: Path, data: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(".tmp")
+    tmp.write_text(json.dumps(data, indent=2))
+    tmp.replace(path)
+
+
+def render_one(args: tuple[str, str, str, str]) -> dict:
+    db_path, tiles_root, species_id, slug = args
     con = sqlite3.connect(f"file:{db_path}?mode=ro", uri=True)
+    cells = species_cells(con, species_id)
+    con.close()
+    st = write_tiles(cells, Path(tiles_root), slug)
+    st["id"] = species_id
+    st["slug"] = slug
+    return st
 
-    summary = {"species": [], "totalTiles": 0, "totalBytes": 0}
-    for sp in manifest["species"]:
-        cells = species_cells(con, sp["id"])
-        slug = sp["slug"]
-        st = write_tiles(cells, tiles_root, slug)
-        st["id"] = sp["id"]
-        st["slug"] = slug
-        summary["species"].append(st)
-        summary["totalTiles"] += st["tilesWritten"]
-        summary["totalBytes"] += st["bytes"]
-        print(f"{slug}: {st['tilesWritten']} tiles, {st['bytes'] / 1024:.1f} KiB")
 
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Render AquaMaps heatmap tiles")
+    parser.add_argument("db_path", nargs="?", default="/workspace/data/am.db")
+    parser.add_argument(
+        "--index",
+        default="/workspace/web/public/data/species-search-index.json",
+        help="Species search index JSON",
+    )
+    parser.add_argument("--tiles-root", default="/workspace/web/public/tiles")
+    parser.add_argument("-j", "--jobs", type=int, default=max(1, mp.cpu_count() - 1))
+    parser.add_argument(
+        "--checkpoint-every",
+        type=int,
+        default=25,
+        help="Flush checkpoint after this many species",
+    )
+    args = parser.parse_args()
+
+    db_path = Path(args.db_path)
+    index_path = Path(args.index)
+    tiles_root = Path(args.tiles_root)
+    tiles_root.mkdir(parents=True, exist_ok=True)
+    checkpoint_path = tiles_root / "render-checkpoint.json"
+
+    index = json.loads(index_path.read_text())
+    all_species = [(e["id"], e["slug"]) for e in index["entries"]]
+
+    checkpoint = load_checkpoint(checkpoint_path)
+    done = set(checkpoint.get("completedSlugs", []))
+    pending = [(sid, slug) for sid, slug in all_species if slug not in done]
+
+    print(f"Species total: {len(all_species)}, already done: {len(done)}, pending: {len(pending)}")
+    if not pending:
+        print("Nothing to render.")
+        stats_path = tiles_root / "tile-stats.json"
+        if not stats_path.is_file() and checkpoint.get("species"):
+            summary = {
+                "species": checkpoint["species"],
+                "totalTiles": checkpoint["totalTiles"],
+                "totalBytes": checkpoint["totalBytes"],
+            }
+            stats_path.write_text(json.dumps(summary, indent=2))
+        return
+
+    species_stats = list(checkpoint.get("species", []))
+    total_tiles = int(checkpoint.get("totalTiles", 0))
+    total_bytes = int(checkpoint.get("totalBytes", 0))
+
+    work = [(str(db_path), str(tiles_root), sid, slug) for sid, slug in pending]
+    jobs = max(1, args.jobs)
+    batch_size = max(1, args.checkpoint_every)
+
+    with mp.Pool(processes=jobs) as pool:
+        for i, st in enumerate(pool.imap_unordered(render_one, work, chunksize=1), start=1):
+            species_stats.append(st)
+            total_tiles += st["tilesWritten"]
+            total_bytes += st["bytes"]
+            done.add(st["slug"])
+            print(f"[{len(done)}/{len(all_species)}] {st['slug']}: {st['tilesWritten']} tiles")
+
+            if i % batch_size == 0 or len(done) == len(all_species):
+                checkpoint = {
+                    "completedSlugs": sorted(done),
+                    "species": species_stats,
+                    "totalTiles": total_tiles,
+                    "totalBytes": total_bytes,
+                    "updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                }
+                save_checkpoint(checkpoint_path, checkpoint)
+
+    summary = {
+        "species": species_stats,
+        "totalTiles": total_tiles,
+        "totalBytes": total_bytes,
+        "zoomMin": ZMIN,
+        "zoomMax": ZMAX,
+    }
     stats_path = tiles_root / "tile-stats.json"
     stats_path.write_text(json.dumps(summary, indent=2))
-    print(f"Total: {summary['totalTiles']} tiles, {summary['totalBytes'] / (1024*1024):.2f} MiB")
-    con.close()
+    print(f"Total: {total_tiles} tiles, {total_bytes / (1024 * 1024):.2f} MiB")
 
 
 if __name__ == "__main__":
