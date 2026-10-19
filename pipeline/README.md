@@ -80,10 +80,17 @@ The web app reads heatmaps from `VITE_TILES_BASE_URL` (default `/tiles`).
 
 ## Last run
 
-_(Updated after each full pipeline run.)_
-
-- **Date:** —
-- **Species count:** —
-- **Search index size:** —
-- **Tiles:** — WebP files, — total bytes (`web/public/tiles/tile-stats.json`)
+- **Date:** 2026-10-19 (branch `cursor/aquatic-globe-global-40d1`, `data/am.db` from Archive.org)
+- **Species count:** 23,696 (global filter above; 23,699 rows in `speciesoccursum_r`, 3 without qualifying native cells)
+- **Search index size:** 2.40 MiB (`species-search-index.json`, compact names + slugs)
+- **Per-species records:** 94 MiB total under `web/public/data/species/` (lazy-loaded JSON, not committed)
+- **Tiles (partial):** full render was in progress at ~1,650 / 23,696 species → ~279k WebP files, ~61 MiB on disk; extrapolated full run ≈ **4.0M tiles / ~0.9 GiB** at z0–5 (see `render-checkpoint.json` + `tile-stats.json` when complete)
 - **Zoom levels:** 0–5
+
+**Resume tile render** (after clone + `am.db` + filter):
+
+```bash
+pip install Pillow
+python3 pipeline/filter_species.py data/am.db
+python3 pipeline/render_tiles.py data/am.db -j "$(nproc)"
+```
