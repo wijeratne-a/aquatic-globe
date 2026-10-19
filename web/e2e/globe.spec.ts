@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const shotsDir = path.join(__dirname, '../../artifacts/screenshots');
 
-test('globe home and species selection', async ({ page }, testInfo) => {
+test('globe home and Atlantic cod heatmap', async ({ page }, testInfo) => {
   await page.goto('/');
   await page.waitForSelector('#cesium-container canvas', { timeout: 60_000 });
   await page.waitForTimeout(4000);
@@ -18,7 +18,7 @@ test('globe home and species selection', async ({ page }, testInfo) => {
 
   const search = page.locator('#species-search');
   await search.click();
-  await search.fill('shark');
+  await search.fill('atlantic cod');
   await page.waitForSelector('#search-results li', { timeout: 10_000 });
   await page.keyboard.press('ArrowDown');
   await page.keyboard.press('Enter');
@@ -26,9 +26,10 @@ test('globe home and species selection', async ({ page }, testInfo) => {
   await page.waitForTimeout(4500);
   await expect(page.locator('.illustrative-label')).toBeVisible();
   await expect(page.locator('#species-panel')).toBeVisible();
+  await expect(page.locator('#species-scientific')).toContainText(/Gadus/i);
 
   await page.screenshot({
-    path: path.join(shotsDir, `${viewport}-species.png`),
+    path: path.join(shotsDir, `${viewport}-atlantic-cod.png`),
     fullPage: false,
   });
 });

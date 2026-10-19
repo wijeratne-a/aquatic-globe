@@ -8,6 +8,13 @@ build/
 *.db
 /tiles/
 web/public/tiles/
+web/public/data/species/
+web/public/data/species-search-index.json
+web/public/data/species-ids.txt
+web/public/data/socal-species.json
+web/public/data/socal-species-ids.txt
+web/public/socal-tiles.tar.gz
+web/public/tiles-batch-*.tar.gz
 .DS_Store
 .env
 .env.local

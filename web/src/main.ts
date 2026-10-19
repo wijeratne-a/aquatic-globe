@@ -1,19 +1,19 @@
 import 'cesium/Build/Cesium/Widgets/widgets.css';
 import './style.css';
 import { AquaticGlobe } from './globe';
-import { SpeciesSearch, type SpeciesRecord } from './search';
+import { SpeciesSearch, fetchSpeciesRecord, type SearchIndexEntry } from './search';
 
-const manifestUrl = '/data/socal-species.json';
+const searchIndexUrl = '/data/species-search-index.json';
 
 async function boot(): Promise<void> {
   const container = document.getElementById('cesium-container');
   if (!container) throw new Error('Missing globe container');
 
-  const res = await fetch(manifestUrl);
-  if (!res.ok) throw new Error(`Failed to load species manifest (${res.status})`);
-  const manifest = await res.json();
+  const res = await fetch(searchIndexUrl);
+  if (!res.ok) throw new Error(`Failed to load species search index (${res.status})`);
+  const index = await res.json();
   const search = new SpeciesSearch();
-  search.load(manifest);
+  search.load(index);
 
   const globe = AquaticGlobe.create(container);
   wireSearch(search, globe);
@@ -27,7 +27,7 @@ function wireSearch(search: SpeciesSearch, globe: AquaticGlobe): void {
   const sciEl = document.getElementById('species-scientific') as HTMLElement;
   const factsEl = document.getElementById('species-facts') as HTMLDListElement;
 
-  let results: SpeciesRecord[] = [];
+  let results: SearchIndexEntry[] = [];
   let activeIndex = -1;
 
   const renderResults = () => {
@@ -39,31 +39,33 @@ function wireSearch(search: SpeciesSearch, globe: AquaticGlobe): void {
     }
     list.hidden = false;
     input.setAttribute('aria-expanded', 'true');
-    results.forEach((species, i) => {
+    results.forEach((entry, i) => {
       const li = document.createElement('li');
       li.id = `sr-${i}`;
       li.setAttribute('role', 'option');
       li.setAttribute('aria-selected', i === activeIndex ? 'true' : 'false');
       const common = document.createElement('span');
       common.className = 'result-common';
-      common.textContent = species.commonName || species.scientificName;
+      common.textContent = entry.commonName || entry.scientificName;
       const sci = document.createElement('span');
       sci.className = 'result-sci';
-      sci.textContent = species.commonName ? species.scientificName : species.id;
+      sci.textContent = entry.commonName ? entry.scientificName : entry.id;
       li.append(common, sci);
       li.addEventListener('mousedown', (e) => {
         e.preventDefault();
-        selectSpecies(species);
+        void selectSpecies(entry);
       });
       list.appendChild(li);
     });
   };
 
-  const selectSpecies = async (species: SpeciesRecord) => {
-    input.value = species.commonName || species.scientificName;
+  const selectSpecies = async (entry: SearchIndexEntry) => {
+    input.value = entry.commonName || entry.scientificName;
     list.hidden = true;
     input.setAttribute('aria-expanded', 'false');
     activeIndex = -1;
+
+    const species = await fetchSpeciesRecord(entry.slug);
 
     panel.hidden = false;
     nameEl.textContent = species.commonName || species.scientificName;
@@ -72,7 +74,7 @@ function wireSearch(search: SpeciesSearch, globe: AquaticGlobe): void {
     const facts: [string, string][] = [
       ['Family', species.taxonomy.family ?? '—'],
       ['Class', species.taxonomy.class ?? '—'],
-      ['SoCal cells', String(species.bboxCells)],
+      ['Range cells', species.cellCount != null ? String(species.cellCount) : '—'],
       ['Range center', `${species.centroid.lat.toFixed(1)}°, ${species.centroid.lon.toFixed(1)}°`],
     ];
     for (const [label, value] of facts) {
