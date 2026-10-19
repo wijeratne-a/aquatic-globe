@@ -15,7 +15,9 @@ An interactive Google-Earth-style 3D globe website: search any aquatic species (
 
 ## Status
 
-Early build. See `docs/RESEARCH_PLAN.md` for the full research plan (9 tracks) and `docs/PROJECT.md` for the agent build brief.
+**SoCal test slice (in progress):** `web/` — Vite + TypeScript + CesiumJS globe with SoCal species search and AquaMaps heatmap tiles. `pipeline/` — AquaMaps SQLite → species filter → static WebP tiles. See `pipeline/README.md` for filter definition and tile stats.
+
+See `docs/RESEARCH_PLAN.md` for the full research plan (9 tracks) and `docs/PROJECT.md` for the agent build brief.
 
 ## Repo layout (planned)
 

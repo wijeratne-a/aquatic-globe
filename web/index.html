@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Aquatic Globe — Southern California</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <header class="top-bar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">Aquatic Globe</span>
+          <span class="brand-region">SoCal test slice</span>
+        </div>
+        <div class="search-wrap">
+          <label class="visually-hidden" for="species-search">Search species</label>
+          <input
+            id="species-search"
+            type="search"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Search fish &amp; marine life…"
+            role="combobox"
+            aria-expanded="false"
+            aria-controls="search-results"
+            aria-autocomplete="list"
+          />
+          <ul id="search-results" class="search-results" role="listbox" hidden></ul>
+        </div>
+      </header>
+
+      <div id="cesium-container" aria-hidden="true"></div>
+
+      <div class="map-chrome">
+        <p class="illustrative-label" aria-live="polite">
+          <strong>Illustrative range</strong> — modeled habitat suitability, not live animal positions
+        </p>
+      </div>
+
+      <aside id="species-panel" class="species-panel" hidden>
+        <p class="panel-kicker">Selected species</p>
+        <h2 id="species-name"></h2>
+        <p id="species-scientific" class="scientific"></p>
+        <dl id="species-facts" class="facts"></dl>
+      </aside>
+
+      <footer class="site-footer">
+        <p>
+          Range data:
+          <a href="https://www.aquamaps.org" target="_blank" rel="noopener noreferrer"
+            >AquaMaps</a
+          >
+          (Kaschner et al. 2019). Non-commercial research preview — see
+          <a href="https://creativecommons.org/licenses/by-nc/3.0/" target="_blank" rel="noopener"
+            >CC BY-NC 3.0</a
+          >. Imagery: Esri, Maxar, Earthstar Geographics.
+        </p>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

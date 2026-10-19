@@ -1,0 +1,1922 @@
+{
+  "region": "Southern California Bight",
+  "bbox": {
+    "latMin": 32.0,
+    "latMax": 35.0,
+    "lonMin": -121.0,
+    "lonMax": -117.0
+  },
+  "filter": {
+    "minBboxProbSum": 0.75,
+    "minBboxCells": 2,
+    "minCellProb": 0.08,
+    "targetSpeciesRange": [
+      50,
+      100
+    ],
+    "ranking": "descending sum(Probability) for cells with center inside bbox"
+  },
+  "speciesCount": 100,
+  "species": [
+    {
+      "id": "Fis-34713",
+      "slug": "fis-34713",
+      "scientificName": "Alepocephalus tenebrosus",
+      "commonName": "California slickhead",
+      "centroid": {
+        "lat": -0.3495029158414069,
+        "lon": -63.99692300911527
+      },
+      "bboxMass": 34.45,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Osmeriformes",
+        "family": "Alepocephalidae"
+      }
+    },
+    {
+      "id": "Fis-23899",
+      "slug": "fis-23899",
+      "scientificName": "Alopias vulpinus",
+      "commonName": "Thresher",
+      "centroid": {
+        "lat": -3.747383624704824,
+        "lon": -4.037438088429104
+      },
+      "bboxMass": 36.03000000000001,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Elasmobranchii",
+        "order": "Lamniformes",
+        "family": "Alopiidae"
+      }
+    },
+    {
+      "id": "Fis-23904",
+      "slug": "fis-23904",
+      "scientificName": "Anoplogaster cornuta",
+      "commonName": "Common fangtooth",
+      "centroid": {
+        "lat": -1.7330338208248641,
+        "lon": -13.504555988930248
+      },
+      "bboxMass": 33.51,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Beryciformes",
+        "family": "Anoplogastridae"
+      }
+    },
+    {
+      "id": "Fis-29650",
+      "slug": "fis-29650",
+      "scientificName": "Antimora microlepis",
+      "commonName": "Finescale mora",
+      "centroid": {
+        "lat": 43.59855260288412,
+        "lon": -18.188600626073367
+      },
+      "bboxMass": 34.739999999999995,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Gadiformes",
+        "family": "Moridae"
+      }
+    },
+    {
+      "id": "Fis-144330",
+      "slug": "fis-144330",
+      "scientificName": "Aphanopus arigato",
+      "commonName": "Pacific black scabbardfish",
+      "centroid": {
+        "lat": 0.858032434994111,
+        "lon": 25.100678110212076
+      },
+      "bboxMass": 33.06000000000001,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Perciformes",
+        "family": "Trichiuridae"
+      }
+    },
+    {
+      "id": "W-Pol-332992",
+      "slug": "w-pol-332992",
+      "scientificName": "Aphelochaeta multifilis",
+      "commonName": "",
+      "centroid": {
+        "lat": -12.108795185280632,
+        "lon": -53.22835291391714
+      },
+      "bboxMass": 34.41,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Annelida",
+        "class": "Polychaeta",
+        "order": "Canalipalpata",
+        "family": "Cirratulidae"
+      }
+    },
+    {
+      "id": "Fis-29281",
+      "slug": "fis-29281",
+      "scientificName": "Apristurus kampae",
+      "commonName": "Longnose catshark",
+      "centroid": {
+        "lat": 30.20890748031496,
+        "lon": -117.00144122609673
+      },
+      "bboxMass": 34.76,
+      "bboxCells": 35,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Elasmobranchii",
+        "order": "Carcharhiniformes",
+        "family": "Scyliorhinidae"
+      }
+    },
+    {
+      "id": "Fis-29291",
+      "slug": "fis-29291",
+      "scientificName": "Argyropelecus affinis",
+      "commonName": "Pacific hatchet fish",
+      "centroid": {
+        "lat": -4.649881657742759,
+        "lon": -7.148064010022703
+      },
+      "bboxMass": 33.97000000000001,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Stomiiformes",
+        "family": "Sternoptychidae"
+      }
+    },
+    {
+      "id": "Fis-34692",
+      "slug": "fis-34692",
+      "scientificName": "Argyropelecus lychnus",
+      "commonName": "Tropical hatchetfish",
+      "centroid": {
+        "lat": 0.8971547810729421,
+        "lon": -32.84729536976081
+      },
+      "bboxMass": 33.14999999999999,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Stomiiformes",
+        "family": "Sternoptychidae"
+      }
+    },
+    {
+      "id": "Fis-32332",
+      "slug": "fis-32332",
+      "scientificName": "Argyropelecus sladeni",
+      "commonName": "Sladen's hatchet fish",
+      "centroid": {
+        "lat": -7.835574278745959,
+        "lon": -5.367893057754449
+      },
+      "bboxMass": 33.07,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Stomiiformes",
+        "family": "Sternoptychidae"
+      }
+    },
+    {
+      "id": "Fis-28129",
+      "slug": "fis-28129",
+      "scientificName": "Aristostomias scintillans",
+      "commonName": "Shiny loosejaw",
+      "centroid": {
+        "lat": 42.94871347636404,
+        "lon": -145.0421210559684
+      },
+      "bboxMass": 35.86000000000001,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Stomiiformes",
+        "family": "Stomiidae"
+      }
+    },
+    {
+      "id": "ITS-Mam-180524",
+      "slug": "its-mam-180524",
+      "scientificName": "Balaenoptera acutorostrata",
+      "commonName": "northern minke whale",
+      "centroid": {
+        "lat": -6.127817173404446,
+        "lon": -4.086851243207073
+      },
+      "bboxMass": 34.300000000000004,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Cetacea",
+        "family": "Balaenopteridae"
+      }
+    },
+    {
+      "id": "ITS-Mam-180527",
+      "slug": "its-mam-180527",
+      "scientificName": "Balaenoptera physalus",
+      "commonName": "fin whale",
+      "centroid": {
+        "lat": -12.735198946943154,
+        "lon": -8.249256296224114
+      },
+      "bboxMass": 34.199999999999996,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Cetacea",
+        "family": "Balaenopteridae"
+      }
+    },
+    {
+      "id": "Fis-164166",
+      "slug": "fis-164166",
+      "scientificName": "Bathylagoides wesethi",
+      "commonName": "Snubnose blacksmelt",
+      "centroid": {
+        "lat": 30.76214296433395,
+        "lon": -119.87704467010154
+      },
+      "bboxMass": 33.480000000000004,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Osmeriformes",
+        "family": "Bathylagidae"
+      }
+    },
+    {
+      "id": "Fis-23929",
+      "slug": "fis-23929",
+      "scientificName": "Benthalbella dentata",
+      "commonName": "Northern pearleye",
+      "centroid": {
+        "lat": 44.438847371930216,
+        "lon": -73.02965433659296
+      },
+      "bboxMass": 33.769999999999996,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Aulopiformes",
+        "family": "Scopelarchidae"
+      }
+    },
+    {
+      "id": "ITS-96082",
+      "slug": "its-96082",
+      "scientificName": "Bentheogennema burkenroadi",
+      "commonName": "Burkenroad blunt-tail shrimp",
+      "centroid": {
+        "lat": 19.93527716474805,
+        "lon": -62.57680660011604
+      },
+      "bboxMass": 34.38999999999999,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Malacostraca",
+        "order": "Decapoda",
+        "family": "Benthesicymidae"
+      }
+    },
+    {
+      "id": "Fis-173420",
+      "slug": "fis-173420",
+      "scientificName": "Beringraja inornata",
+      "commonName": "California skate",
+      "centroid": {
+        "lat": 32.645367679928476,
+        "lon": -117.91246647295485
+      },
+      "bboxMass": 33.980000000000004,
+      "bboxCells": 35,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Elasmobranchii",
+        "order": "Rajiformes",
+        "family": "Rajidae"
+      }
+    },
+    {
+      "id": "Fis-56163",
+      "slug": "fis-56163",
+      "scientificName": "Bothrocara molle",
+      "commonName": "Soft eelpout",
+      "centroid": {
+        "lat": 6.1689559053154674,
+        "lon": 25.18750037106743
+      },
+      "bboxMass": 34.58,
+      "bboxCells": 36,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Perciformes",
+        "family": "Zoarcidae"
+      }
+    },
+    {
+      "id": "W-Ech-513150",
+      "slug": "w-ech-513150",
+      "scientificName": "Brissopsis pacifica",
+      "commonName": "Pacific heart urchin",
+      "centroid": {
+        "lat": -18.830218178731112,
+        "lon": 9.313161469239912
+      },
+      "bboxMass": 33.32000000000001,
+      "bboxCells": 35,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Echinodermata",
+        "class": "Echinoidea",
+        "order": "Spatangoida",
+        "family": "Brissidae"
+      }
+    },
+    {
+      "id": "W-Cha-105431",
+      "slug": "w-cha-105431",
+      "scientificName": "Caecosagitta macrocephala",
+      "commonName": "",
+      "centroid": {
+        "lat": 1.0501639794725088,
+        "lon": -37.867752662146536
+      },
+      "bboxMass": 33.449999999999996,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chaetognatha",
+        "class": "Not assigned",
+        "order": "Not assigned",
+        "family": "Sagittidae"
+      }
+    },
+    {
+      "id": "Fis-23071",
+      "slug": "fis-23071",
+      "scientificName": "Carcharodon carcharias",
+      "commonName": "Great white shark",
+      "centroid": {
+        "lat": -5.060449362501716,
+        "lon": -10.356576574523004
+      },
+      "bboxMass": 35.7,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Elasmobranchii",
+        "order": "Lamniformes",
+        "family": "Lamnidae"
+      }
+    },
+    {
+      "id": "Fis-28224",
+      "slug": "fis-28224",
+      "scientificName": "Caristius macropus",
+      "commonName": "Manefish",
+      "centroid": {
+        "lat": -0.17804148590122731,
+        "lon": -50.10751874516389
+      },
+      "bboxMass": 35.870000000000005,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Perciformes",
+        "family": "Caristiidae"
+      }
+    },
+    {
+      "id": "Fis-22747",
+      "slug": "fis-22747",
+      "scientificName": "Cetorhinus maximus",
+      "commonName": "Basking shark",
+      "centroid": {
+        "lat": -2.492100013377181,
+        "lon": -23.718566296564653
+      },
+      "bboxMass": 35.580000000000005,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Elasmobranchii",
+        "order": "Lamniformes",
+        "family": "Cetorhinidae"
+      }
+    },
+    {
+      "id": "Fis-50427",
+      "slug": "fis-50427",
+      "scientificName": "Chaenophryne ramifera",
+      "commonName": "",
+      "centroid": {
+        "lat": -5.044941031679423,
+        "lon": -74.11012326038757
+      },
+      "bboxMass": 36.7,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Lophiiformes",
+        "family": "Oneirodidae"
+      }
+    },
+    {
+      "id": "W-Msc-545018",
+      "slug": "w-msc-545018",
+      "scientificName": "Chaetoderma hancocki",
+      "commonName": "",
+      "centroid": {
+        "lat": -7.306361383902647,
+        "lon": -34.03416203171981
+      },
+      "bboxMass": 33.519999999999996,
+      "bboxCells": 35,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Mollusca",
+        "class": "Aplacophora",
+        "order": "Not assigned",
+        "family": "Chaetodermidae"
+      }
+    },
+    {
+      "id": "W-Msc-545037",
+      "slug": "w-msc-545037",
+      "scientificName": "Chaetoderma nanulum",
+      "commonName": "",
+      "centroid": {
+        "lat": -0.7674143003033214,
+        "lon": -54.390579511332625
+      },
+      "bboxMass": 33.260000000000005,
+      "bboxCells": 35,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Mollusca",
+        "class": "Aplacophora",
+        "order": "Not assigned",
+        "family": "Chaetodermidae"
+      }
+    },
+    {
+      "id": "SLB-71422",
+      "slug": "slb-71422",
+      "scientificName": "Chiroteuthis veranyi",
+      "commonName": "Verany's long-armed squid",
+      "centroid": {
+        "lat": -3.5961074416785803,
+        "lon": -9.79408761835031
+      },
+      "bboxMass": 34.3,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Mollusca",
+        "class": "Cephalopoda",
+        "order": "Teuthida",
+        "family": "Chiroteuthidae"
+      }
+    },
+    {
+      "id": "Fis-29338",
+      "slug": "fis-29338",
+      "scientificName": "Chlamydoselachus anguineus",
+      "commonName": "Frilled shark",
+      "centroid": {
+        "lat": 9.522831064056595,
+        "lon": 13.812269084940402
+      },
+      "bboxMass": 35.00999999999999,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Elasmobranchii",
+        "order": "Hexanchiformes",
+        "family": "Chlamydoselachidae"
+      }
+    },
+    {
+      "id": "W-Msc-139185",
+      "slug": "w-msc-139185",
+      "scientificName": "Cliopsis krohnii",
+      "commonName": "sea cherub",
+      "centroid": {
+        "lat": -2.731608274983033,
+        "lon": -35.140466967936305
+      },
+      "bboxMass": 33.48000000000001,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Mollusca",
+        "class": "Gastropoda",
+        "order": "Gymnosomata",
+        "family": "Cliopsidae"
+      }
+    },
+    {
+      "id": "Fis-22864",
+      "slug": "fis-22864",
+      "scientificName": "Cololabis saira",
+      "commonName": "Pacific saury",
+      "centroid": {
+        "lat": 41.48584008838303,
+        "lon": -23.056644999122163
+      },
+      "bboxMass": 37.370000000000005,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Beloniformes",
+        "family": "Scomberesocidae"
+      }
+    },
+    {
+      "id": "W-Msc-181386",
+      "slug": "w-msc-181386",
+      "scientificName": "Cranchia scabra",
+      "commonName": "rough cranch squid",
+      "centroid": {
+        "lat": -3.7827715562241835,
+        "lon": -8.024472590940237
+      },
+      "bboxMass": 36.11,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Mollusca",
+        "class": "Cephalopoda",
+        "order": "Teuthida",
+        "family": "Cranchiidae"
+      }
+    },
+    {
+      "id": "Fis-29879",
+      "slug": "fis-29879",
+      "scientificName": "Cubiceps paradoxus",
+      "commonName": "Longfin cigarfish",
+      "centroid": {
+        "lat": -5.5714610194434355,
+        "lon": -78.48686416529067
+      },
+      "bboxMass": 36.79,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Perciformes",
+        "family": "Nomeidae"
+      }
+    },
+    {
+      "id": "Fis-57574",
+      "slug": "fis-57574",
+      "scientificName": "Cyclothone signata",
+      "commonName": "Showy bristlemouth",
+      "centroid": {
+        "lat": 0.49395332864909675,
+        "lon": -67.494385922627
+      },
+      "bboxMass": 33.19,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Stomiiformes",
+        "family": "Gonostomatidae"
+      }
+    },
+    {
+      "id": "W-Msc-506010",
+      "slug": "w-msc-506010",
+      "scientificName": "Dacrydium pacificum",
+      "commonName": "Pacific glassy-mussel",
+      "centroid": {
+        "lat": -1.1578262230127265,
+        "lon": -63.91105081342435
+      },
+      "bboxMass": 34.99000000000001,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Mollusca",
+        "class": "Bivalvia",
+        "order": "Mytiloida",
+        "family": "Mytilidae"
+      }
+    },
+    {
+      "id": "ITS-Mam-180438",
+      "slug": "its-mam-180438",
+      "scientificName": "Delphinus delphis",
+      "commonName": "common dolphin",
+      "centroid": {
+        "lat": -3.0825694831765866,
+        "lon": -22.706009349199668
+      },
+      "bboxMass": 33.339999999999996,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Cetacea",
+        "family": "Delphinidae"
+      }
+    },
+    {
+      "id": "Rep-3437",
+      "slug": "rep-3437",
+      "scientificName": "Dermochelys coriacea",
+      "commonName": "leatherback turtle",
+      "centroid": {
+        "lat": -3.1152719581002875,
+        "lon": -8.44575604283108
+      },
+      "bboxMass": 36.440000000000005,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Reptilia",
+        "order": "Testudines",
+        "family": "Dermochelyidae"
+      }
+    },
+    {
+      "id": "Fis-29909",
+      "slug": "fis-29909",
+      "scientificName": "Desmodema lorum",
+      "commonName": "Whiptail ribbonfish",
+      "centroid": {
+        "lat": 31.997429045925863,
+        "lon": -121.92294057529755
+      },
+      "bboxMass": 35.65,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Lampriformes",
+        "family": "Trachipteridae"
+      }
+    },
+    {
+      "id": "Fis-29911",
+      "slug": "fis-29911",
+      "scientificName": "Diaphus theta",
+      "commonName": "California headlightfish",
+      "centroid": {
+        "lat": 28.50476993080124,
+        "lon": -135.6849370313508
+      },
+      "bboxMass": 36.980000000000004,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Myctophiformes",
+        "family": "Myctophidae"
+      }
+    },
+    {
+      "id": "Fis-143735",
+      "slug": "fis-143735",
+      "scientificName": "Facciolella equatorialis",
+      "commonName": "Dogface witch eel",
+      "centroid": {
+        "lat": -5.733279665056245,
+        "lon": -111.64001285204189
+      },
+      "bboxMass": 35.74,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Anguilliformes",
+        "family": "Nettastomatidae"
+      }
+    },
+    {
+      "id": "W-Msc-458324",
+      "slug": "w-msc-458324",
+      "scientificName": "Falcidens longus",
+      "commonName": "slender glistenworm",
+      "centroid": {
+        "lat": -2.167269769870276,
+        "lon": -56.255558456162895
+      },
+      "bboxMass": 33.7,
+      "bboxCells": 35,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Mollusca",
+        "class": "Aplacophora",
+        "order": "Chaetodermomorpha",
+        "family": "Falcidentidae"
+      }
+    },
+    {
+      "id": "SLB-65115",
+      "slug": "slb-65115",
+      "scientificName": "Halicreas bigelowi",
+      "commonName": "",
+      "centroid": {
+        "lat": -6.433825860964828,
+        "lon": -30.603222517206863
+      },
+      "bboxMass": 33.8,
+      "bboxCells": 36,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Cnidaria",
+        "class": "Hydrozoa",
+        "order": "Trachymedusae",
+        "family": "Halicreatidae"
+      }
+    },
+    {
+      "id": "W-Msc-139424",
+      "slug": "w-msc-139424",
+      "scientificName": "Helicocranchia pfefferi",
+      "commonName": "Pfeffer's cranch squid",
+      "centroid": {
+        "lat": -5.1085094180724155,
+        "lon": -73.71005915283058
+      },
+      "bboxMass": 33.24999999999999,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Mollusca",
+        "class": "Cephalopoda",
+        "order": "Teuthida",
+        "family": "Cranchiidae"
+      }
+    },
+    {
+      "id": "Fis-23157",
+      "slug": "fis-23157",
+      "scientificName": "Hexanchus griseus",
+      "commonName": "Bluntnose sixgill shark",
+      "centroid": {
+        "lat": 4.541821308403694,
+        "lon": 30.760039658099025
+      },
+      "bboxMass": 35.23,
+      "bboxCells": 38,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Elasmobranchii",
+        "order": "Hexanchiformes",
+        "family": "Hexanchidae"
+      }
+    },
+    {
+      "id": "Fis-28112",
+      "slug": "fis-28112",
+      "scientificName": "Holtbyrnia innesi",
+      "commonName": "Teardrop tubeshoulder",
+      "centroid": {
+        "lat": -0.2802990387975925,
+        "lon": -57.2151286784184
+      },
+      "bboxMass": 33.07000000000001,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Osmeriformes",
+        "family": "Platytroctidae"
+      }
+    },
+    {
+      "id": "Fis-30146",
+      "slug": "fis-30146",
+      "scientificName": "Icichthys lockingtoni",
+      "commonName": "Medusafish",
+      "centroid": {
+        "lat": 10.341900688215116,
+        "lon": -54.59036285769075
+      },
+      "bboxMass": 36.44,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Perciformes",
+        "family": "Centrolophidae"
+      }
+    },
+    {
+      "id": "Fis-34710",
+      "slug": "fis-34710",
+      "scientificName": "Idiacanthus antrostomus",
+      "commonName": "Pacific blackdragon",
+      "centroid": {
+        "lat": -2.348718440687449,
+        "lon": -64.2026048970998
+      },
+      "bboxMass": 34.64,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Stomiiformes",
+        "family": "Stomiidae"
+      }
+    },
+    {
+      "id": "ITS-Mam-180491",
+      "slug": "its-mam-180491",
+      "scientificName": "Kogia breviceps",
+      "commonName": "pygmy sperm whale",
+      "centroid": {
+        "lat": -4.620697323965929,
+        "lon": -9.5980472339435
+      },
+      "bboxMass": 34.88,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Cetacea",
+        "family": "Kogiidae"
+      }
+    },
+    {
+      "id": "ITS-Mam-180444",
+      "slug": "its-mam-180444",
+      "scientificName": "Lagenorhynchus obliquidens",
+      "commonName": "Pacific white-sided dolphin",
+      "centroid": {
+        "lat": 43.01253533999206,
+        "lon": -27.462198134952317
+      },
+      "bboxMass": 35.24,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Cetacea",
+        "family": "Delphinidae"
+      }
+    },
+    {
+      "id": "Fis-32343",
+      "slug": "fis-32343",
+      "scientificName": "Lampadena urophaos",
+      "commonName": "Sunbeam lampfish",
+      "centroid": {
+        "lat": -4.052537513361879,
+        "lon": -41.613689116241375
+      },
+      "bboxMass": 35.879999999999995,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Myctophiformes",
+        "family": "Myctophidae"
+      }
+    },
+    {
+      "id": "W-Msc-394088",
+      "slug": "w-msc-394088",
+      "scientificName": "Leopecten sericeus",
+      "commonName": "silken scallop",
+      "centroid": {
+        "lat": -10.520568751111131,
+        "lon": -92.14288722073564
+      },
+      "bboxMass": 33.50999999999999,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Mollusca",
+        "class": "Bivalvia",
+        "order": "Ostreoida",
+        "family": "Pectinidae"
+      }
+    },
+    {
+      "id": "Fis-139416",
+      "slug": "fis-139416",
+      "scientificName": "Leptocephalus giganteus",
+      "commonName": "Giant leptocephalus",
+      "centroid": {
+        "lat": -3.238141695235745,
+        "lon": -52.12670184140591
+      },
+      "bboxMass": 33.440000000000005,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Notacanthiformes",
+        "family": "Notacanthidae"
+      }
+    },
+    {
+      "id": "Fis-52940",
+      "slug": "fis-52940",
+      "scientificName": "Lestidiops sphyraenopsis",
+      "commonName": "",
+      "centroid": {
+        "lat": -9.403390987015992,
+        "lon": -50.11723150518892
+      },
+      "bboxMass": 36.66,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Aulopiformes",
+        "family": "Paralepididae"
+      }
+    },
+    {
+      "id": "Fis-29725",
+      "slug": "fis-29725",
+      "scientificName": "Leuroglossus stilbius",
+      "commonName": "California smoothtongue",
+      "centroid": {
+        "lat": -13.344954294601694,
+        "lon": -102.76618399453395
+      },
+      "bboxMass": 36.589999999999996,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Osmeriformes",
+        "family": "Bathylagidae"
+      }
+    },
+    {
+      "id": "W-Msc-505524",
+      "slug": "w-msc-505524",
+      "scientificName": "Limatula similaris",
+      "commonName": "furrowless fileclam",
+      "centroid": {
+        "lat": -0.24138090541587573,
+        "lon": -58.228052263870104
+      },
+      "bboxMass": 34.88,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Mollusca",
+        "class": "Bivalvia",
+        "order": "Limoida",
+        "family": "Limidae"
+      }
+    },
+    {
+      "id": "W-Msc-544977",
+      "slug": "w-msc-544977",
+      "scientificName": "Limifossor fratula",
+      "commonName": "southern mole glistenworm",
+      "centroid": {
+        "lat": -6.777498347629666,
+        "lon": -36.74416404587416
+      },
+      "bboxMass": 33.72,
+      "bboxCells": 35,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Mollusca",
+        "class": "Aplacophora",
+        "order": "Not assigned",
+        "family": "Limifossoridae"
+      }
+    },
+    {
+      "id": "Fis-30255",
+      "slug": "fis-30255",
+      "scientificName": "Luvarus imperialis",
+      "commonName": "Luvar",
+      "centroid": {
+        "lat": 11.925470561651148,
+        "lon": -28.05329029313456
+      },
+      "bboxMass": 37.56,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Perciformes",
+        "family": "Luvaridae"
+      }
+    },
+    {
+      "id": "Fis-30256",
+      "slug": "fis-30256",
+      "scientificName": "Lycodapus fierasfer",
+      "commonName": "Blackmouth eelpout",
+      "centroid": {
+        "lat": 11.167899953872382,
+        "lon": -37.1177636030749
+      },
+      "bboxMass": 33.709999999999994,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Perciformes",
+        "family": "Zoarcidae"
+      }
+    },
+    {
+      "id": "Fis-30273",
+      "slug": "fis-30273",
+      "scientificName": "Macropinna microstoma",
+      "commonName": "Barreleye",
+      "centroid": {
+        "lat": 45.17866664526203,
+        "lon": -23.798023102745862
+      },
+      "bboxMass": 34.31,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Osmeriformes",
+        "family": "Opisthoproctidae"
+      }
+    },
+    {
+      "id": "Fis-24762",
+      "slug": "fis-24762",
+      "scientificName": "Macroramphosus gracilis",
+      "commonName": "Slender snipefish",
+      "centroid": {
+        "lat": -2.83925227887531,
+        "lon": -17.514466426629344
+      },
+      "bboxMass": 37.0,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Syngnathiformes",
+        "family": "Centriscidae"
+      }
+    },
+    {
+      "id": "W-Pol-329174",
+      "slug": "w-pol-329174",
+      "scientificName": "Maldane cristata",
+      "commonName": "",
+      "centroid": {
+        "lat": -3.3652443124509697,
+        "lon": 40.317959206544884
+      },
+      "bboxMass": 34.86,
+      "bboxCells": 35,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Annelida",
+        "class": "Polychaeta",
+        "order": "Not assigned",
+        "family": "Maldanidae"
+      }
+    },
+    {
+      "id": "Fis-34593",
+      "slug": "fis-34593",
+      "scientificName": "Maulisia acuticeps",
+      "commonName": "Sharpsnout tubeshoulder",
+      "centroid": {
+        "lat": -7.2485219870721815,
+        "lon": -39.21396375148367
+      },
+      "bboxMass": 34.8,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Osmeriformes",
+        "family": "Platytroctidae"
+      }
+    },
+    {
+      "id": "W-Msc-225818",
+      "slug": "w-msc-225818",
+      "scientificName": "Megalocranchia oceanica",
+      "commonName": "oceanic cranch squid",
+      "centroid": {
+        "lat": -3.479156468184905,
+        "lon": -70.03598407262915
+      },
+      "bboxMass": 35.39,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Mollusca",
+        "class": "Cephalopoda",
+        "order": "Teuthida",
+        "family": "Cranchiidae"
+      }
+    },
+    {
+      "id": "ITS-Mam-180530",
+      "slug": "its-mam-180530",
+      "scientificName": "Megaptera novaeangliae",
+      "commonName": "humpback whale",
+      "centroid": {
+        "lat": -6.656785546300507,
+        "lon": -9.534074619262347
+      },
+      "bboxMass": 35.8,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Cetacea",
+        "family": "Balaenopteridae"
+      }
+    },
+    {
+      "id": "Fis-35242",
+      "slug": "fis-35242",
+      "scientificName": "Melamphaes acanthomus",
+      "commonName": "Slender bigscale",
+      "centroid": {
+        "lat": -7.659938925014853,
+        "lon": -105.87114045702221
+      },
+      "bboxMass": 33.46999999999999,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Stephanoberyciformes",
+        "family": "Melamphaidae"
+      }
+    },
+    {
+      "id": "Fis-64697",
+      "slug": "fis-64697",
+      "scientificName": "Melanocetus johnsonii",
+      "commonName": "Humpback anglerfish",
+      "centroid": {
+        "lat": -4.720508406054297,
+        "lon": -9.970402130951154
+      },
+      "bboxMass": 33.16999999999999,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Lophiiformes",
+        "family": "Melanocetidae"
+      }
+    },
+    {
+      "id": "Fis-22908",
+      "slug": "fis-22908",
+      "scientificName": "Merluccius productus",
+      "commonName": "North Pacific hake",
+      "centroid": {
+        "lat": 34.757250460197604,
+        "lon": -122.87678913557984
+      },
+      "bboxMass": 37.3,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Gadiformes",
+        "family": "Merlucciidae"
+      }
+    },
+    {
+      "id": "ITS-Mam-180512",
+      "slug": "its-mam-180512",
+      "scientificName": "Mesoplodon carlhubbsi",
+      "commonName": "Hubb's beaked whale",
+      "centroid": {
+        "lat": 42.06857933901344,
+        "lon": -20.993405207292113
+      },
+      "bboxMass": 33.67999999999999,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Cetacea",
+        "family": "Ziphiidae"
+      }
+    },
+    {
+      "id": "ITS-Mam-180510",
+      "slug": "its-mam-180510",
+      "scientificName": "Mesoplodon ginkgodens",
+      "commonName": "ginkgo-toothed beaked whale",
+      "centroid": {
+        "lat": -9.32436246524143,
+        "lon": 4.574203041414874
+      },
+      "bboxMass": 34.66,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Cetacea",
+        "family": "Ziphiidae"
+      }
+    },
+    {
+      "id": "Fis-144121",
+      "slug": "fis-144121",
+      "scientificName": "Mirorictus taningi",
+      "commonName": "Striped tubeshoulder",
+      "centroid": {
+        "lat": -0.08254933637429122,
+        "lon": -83.00857645158226
+      },
+      "bboxMass": 33.709999999999994,
+      "bboxCells": 35,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Osmeriformes",
+        "family": "Platytroctidae"
+      }
+    },
+    {
+      "id": "Fis-23639",
+      "slug": "fis-23639",
+      "scientificName": "Mola mola",
+      "commonName": "Ocean sunfish",
+      "centroid": {
+        "lat": -4.700644458652719,
+        "lon": -6.2203850646223176
+      },
+      "bboxMass": 35.37,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Tetraodontiformes",
+        "family": "Molidae"
+      }
+    },
+    {
+      "id": "Fis-30349",
+      "slug": "fis-30349",
+      "scientificName": "Nemichthys scolopaceus",
+      "commonName": "Slender snipe eel",
+      "centroid": {
+        "lat": 0.07119510221902609,
+        "lon": -8.111586899013766
+      },
+      "bboxMass": 34.14,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Anguilliformes",
+        "family": "Nemichthyidae"
+      }
+    },
+    {
+      "id": "W-Msc-342060",
+      "slug": "w-msc-342060",
+      "scientificName": "Octopoteuthis megaptera",
+      "commonName": "large-fin octopus squid",
+      "centroid": {
+        "lat": -8.900551893944417,
+        "lon": -37.92992287777586
+      },
+      "bboxMass": 35.32000000000001,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Mollusca",
+        "class": "Cephalopoda",
+        "order": "Teuthida",
+        "family": "Octopoteuthidae"
+      }
+    },
+    {
+      "id": "SLB-66402",
+      "slug": "slb-66402",
+      "scientificName": "Ophiothrix spiculata",
+      "commonName": "Pacific spiny brittlestar",
+      "centroid": {
+        "lat": -12.799464019122363,
+        "lon": -15.81904526876545
+      },
+      "bboxMass": 34.769999999999996,
+      "bboxCells": 36,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Echinodermata",
+        "class": "Ophiuroidea",
+        "order": "Ophiurida",
+        "family": "Ophiothrichidae"
+      }
+    },
+    {
+      "id": "Fis-52688",
+      "slug": "fis-52688",
+      "scientificName": "Opostomias mitsuii",
+      "commonName": "Pitgum lanternfish",
+      "centroid": {
+        "lat": 40.95947381097407,
+        "lon": -34.393781775279294
+      },
+      "bboxMass": 35.98,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Stomiiformes",
+        "family": "Stomiidae"
+      }
+    },
+    {
+      "id": "ITS-Mam-180469",
+      "slug": "its-mam-180469",
+      "scientificName": "Orcinus orca",
+      "commonName": "killer whale",
+      "centroid": {
+        "lat": -3.6294851569649746,
+        "lon": 1.472513788845365
+      },
+      "bboxMass": 34.38,
+      "bboxCells": 38,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Cetacea",
+        "family": "Delphinidae"
+      }
+    },
+    {
+      "id": "Fis-50295",
+      "slug": "fis-50295",
+      "scientificName": "Parataeniophorus brevis",
+      "commonName": "Short tapetail",
+      "centroid": {
+        "lat": -12.938809435411772,
+        "lon": -66.64882718150822
+      },
+      "bboxMass": 33.65,
+      "bboxCells": 35,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Cetomimiformes",
+        "family": "Cetomimidae"
+      }
+    },
+    {
+      "id": "Fis-31335",
+      "slug": "fis-31335",
+      "scientificName": "Parvilux ingens",
+      "commonName": "Giant lampfish",
+      "centroid": {
+        "lat": -2.87614449265058,
+        "lon": -118.49807895211426
+      },
+      "bboxMass": 33.32,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Myctophiformes",
+        "family": "Myctophidae"
+      }
+    },
+    {
+      "id": "W-Pol-334506",
+      "slug": "w-pol-334506",
+      "scientificName": "Phyllodoce groenlandica",
+      "commonName": "",
+      "centroid": {
+        "lat": 20.051843956979997,
+        "lon": -42.65736351789411
+      },
+      "bboxMass": 33.43000000000001,
+      "bboxCells": 36,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Annelida",
+        "class": "Polychaeta",
+        "order": "Aciculata",
+        "family": "Phyllodocidae"
+      }
+    },
+    {
+      "id": "W-Pol-330754",
+      "slug": "w-pol-330754",
+      "scientificName": "Pista brevibranchiata",
+      "commonName": "",
+      "centroid": {
+        "lat": -2.7058322965783206,
+        "lon": 45.29972091675871
+      },
+      "bboxMass": 35.07,
+      "bboxCells": 36,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Annelida",
+        "class": "Polychaeta",
+        "order": "Canalipalpata",
+        "family": "Terebellidae"
+      }
+    },
+    {
+      "id": "W-Msc-342249",
+      "slug": "w-msc-342249",
+      "scientificName": "Planctoteuthis danae",
+      "commonName": "Dana's chiroteuthid squid",
+      "centroid": {
+        "lat": -4.765500192142196,
+        "lon": -72.61542283267856
+      },
+      "bboxMass": 36.7,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Mollusca",
+        "class": "Cephalopoda",
+        "order": "Teuthida",
+        "family": "Chiroteuthidae"
+      }
+    },
+    {
+      "id": "Fis-23222",
+      "slug": "fis-23222",
+      "scientificName": "Prionace glauca",
+      "commonName": "Blue shark",
+      "centroid": {
+        "lat": -3.2749083991348087,
+        "lon": -8.9010136814948
+      },
+      "bboxMass": 36.18999999999998,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Elasmobranchii",
+        "order": "Carcharhiniformes",
+        "family": "Carcharhinidae"
+      }
+    },
+    {
+      "id": "W-Pyc-240277",
+      "slug": "w-pyc-240277",
+      "scientificName": "Pycnogonum stearnsi",
+      "commonName": "",
+      "centroid": {
+        "lat": -4.026104056402775,
+        "lon": -21.303792423657587
+      },
+      "bboxMass": 35.94,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Pycnogonida",
+        "order": "Pantopoda",
+        "family": "Pycnogonidae"
+      }
+    },
+    {
+      "id": "W-Msc-157031",
+      "slug": "w-msc-157031",
+      "scientificName": "Pyroteuthis margaritifera",
+      "commonName": "jewel Enope squid",
+      "centroid": {
+        "lat": -3.2488285889168194,
+        "lon": -11.180606853231021
+      },
+      "bboxMass": 34.64999999999999,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Mollusca",
+        "class": "Cephalopoda",
+        "order": "Teuthida",
+        "family": "Pyroteuthidae"
+      }
+    },
+    {
+      "id": "Fis-30575",
+      "slug": "fis-30575",
+      "scientificName": "Regalecus glesne",
+      "commonName": "King of herrings",
+      "centroid": {
+        "lat": -2.9917434342056897,
+        "lon": -6.817618652979465
+      },
+      "bboxMass": 35.14,
+      "bboxCells": 38,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Lampriformes",
+        "family": "Regalecidae"
+      }
+    },
+    {
+      "id": "Fis-150167",
+      "slug": "fis-150167",
+      "scientificName": "Regalecus russelii",
+      "commonName": "Oarfifsh",
+      "centroid": {
+        "lat": -4.993542361690881,
+        "lon": -27.030315369441123
+      },
+      "bboxMass": 35.91,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Lampriformes",
+        "family": "Regalecidae"
+      }
+    },
+    {
+      "id": "Fis-24929",
+      "slug": "fis-24929",
+      "scientificName": "Remora australis",
+      "commonName": "Whalesucker",
+      "centroid": {
+        "lat": -6.5605400394790605,
+        "lon": -16.397773903500184
+      },
+      "bboxMass": 36.36000000000001,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Perciformes",
+        "family": "Echeneidae"
+      }
+    },
+    {
+      "id": "Fis-24930",
+      "slug": "fis-24930",
+      "scientificName": "Remora brachyptera",
+      "commonName": "Spearfish remora",
+      "centroid": {
+        "lat": -1.4142965886026457,
+        "lon": -21.165842628117236
+      },
+      "bboxMass": 34.81,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Perciformes",
+        "family": "Echeneidae"
+      }
+    },
+    {
+      "id": "Fis-31271",
+      "slug": "fis-31271",
+      "scientificName": "Sagamichthys abei",
+      "commonName": "Shining tubeshoulder",
+      "centroid": {
+        "lat": -7.9255853935509935,
+        "lon": -40.103462512140524
+      },
+      "bboxMass": 36.09,
+      "bboxCells": 37,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Osmeriformes",
+        "family": "Platytroctidae"
+      }
+    },
+    {
+      "id": "Fis-28136",
+      "slug": "fis-28136",
+      "scientificName": "Scopelosaurus harryi",
+      "commonName": "Scaly paperbone",
+      "centroid": {
+        "lat": 43.49535996144932,
+        "lon": -42.56253619334223
+      },
+      "bboxMass": 36.04,
+      "bboxCells": 38,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Aulopiformes",
+        "family": "Notosudidae"
+      }
+    },
+    {
+      "id": "ITS-95940",
+      "slug": "its-95940",
+      "scientificName": "Sergia bigemmea",
+      "commonName": "",
+      "centroid": {
+        "lat": 7.339916223036321,
+        "lon": -43.30510302152457
+      },
+      "bboxMass": 36.74,
+      "bboxCells": 38,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Malacostraca",
+        "order": "Decapoda",
+        "family": "Sergestidae"
+      }
+    },
+    {
+      "id": "Fis-30708",
+      "slug": "fis-30708",
+      "scientificName": "Taractes asper",
+      "commonName": "Rough pomfret",
+      "centroid": {
+        "lat": 8.394670801593666,
+        "lon": -21.171068828715644
+      },
+      "bboxMass": 38.32000000000001,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Perciformes",
+        "family": "Bramidae"
+      }
+    },
+    {
+      "id": "Fis-24371",
+      "slug": "fis-24371",
+      "scientificName": "Tarletonbeania crenularis",
+      "commonName": "Blue lanternfish",
+      "centroid": {
+        "lat": 43.00813569721371,
+        "lon": -58.803024895333735
+      },
+      "bboxMass": 33.27999999999999,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Myctophiformes",
+        "family": "Myctophidae"
+      }
+    },
+    {
+      "id": "Fis-30711",
+      "slug": "fis-30711",
+      "scientificName": "Tetragonurus cuvieri",
+      "commonName": "Smalleye squaretail",
+      "centroid": {
+        "lat": -3.5534295692560383,
+        "lon": -26.376425166576524
+      },
+      "bboxMass": 37.08,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Perciformes",
+        "family": "Tetragonuridae"
+      }
+    },
+    {
+      "id": "Fis-30736",
+      "slug": "fis-30736",
+      "scientificName": "Trachipterus altivelis",
+      "commonName": "King-of-the-salmon",
+      "centroid": {
+        "lat": -1.5321087739981045,
+        "lon": -112.4310802971176
+      },
+      "bboxMass": 36.85000000000001,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Lampriformes",
+        "family": "Trachipteridae"
+      }
+    },
+    {
+      "id": "Fis-30737",
+      "slug": "fis-30737",
+      "scientificName": "Trachipterus fukuzakii",
+      "commonName": "Tapertail ribbonfish",
+      "centroid": {
+        "lat": -6.736871606715811,
+        "lon": -107.29907426038866
+      },
+      "bboxMass": 36.690000000000005,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Lampriformes",
+        "family": "Trachipteridae"
+      }
+    },
+    {
+      "id": "Fis-22970",
+      "slug": "fis-22970",
+      "scientificName": "Trachurus symmetricus",
+      "commonName": "Pacific jack mackerel",
+      "centroid": {
+        "lat": 38.614667893468365,
+        "lon": -144.00020881731098
+      },
+      "bboxMass": 37.79,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Perciformes",
+        "family": "Carangidae"
+      }
+    },
+    {
+      "id": "Fis-24386",
+      "slug": "fis-24386",
+      "scientificName": "Triphoturus mexicanus",
+      "commonName": "Mexican lampfish",
+      "centroid": {
+        "lat": 2.958174817550138,
+        "lon": -117.78567697351674
+      },
+      "bboxMass": 33.449999999999996,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Myctophiformes",
+        "family": "Myctophidae"
+      }
+    },
+    {
+      "id": "ITS-Mam-180426",
+      "slug": "its-mam-180426",
+      "scientificName": "Tursiops truncatus",
+      "commonName": "bottlenose dolphin",
+      "centroid": {
+        "lat": -0.8837965644446645,
+        "lon": 2.4733952736419984
+      },
+      "bboxMass": 33.72,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Cetacea",
+        "family": "Delphinidae"
+      }
+    },
+    {
+      "id": "W-Msc-141962",
+      "slug": "w-msc-141962",
+      "scientificName": "Vitreledonella richardi",
+      "commonName": "glass octopod",
+      "centroid": {
+        "lat": -3.2174580786326628,
+        "lon": -7.873021112825278
+      },
+      "bboxMass": 35.94,
+      "bboxCells": 39,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Mollusca",
+        "class": "Cephalopoda",
+        "order": "Octopoda",
+        "family": "Vitreledonellidae"
+      }
+    },
+    {
+      "id": "Fis-61628",
+      "slug": "fis-61628",
+      "scientificName": "Zameus squamulosus",
+      "commonName": "Velvet dogfish",
+      "centroid": {
+        "lat": 0.520550104938853,
+        "lon": 40.03302630870858
+      },
+      "bboxMass": 33.28,
+      "bboxCells": 35,
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Elasmobranchii",
+        "order": "Squaliformes",
+        "family": "Somniosidae"
+      }
+    }
+  ]
+}
