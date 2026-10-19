@@ -40,7 +40,20 @@ export class AquaticGlobe {
 
     const globeView = new AquaticGlobe(viewer);
     globeView.configureScene();
+    globeView.addBaseImagery();
     return globeView;
+  }
+
+  /** Esri World Imagery base map — free, no API key, gives the Google-Earth look. */
+  private addBaseImagery(): void {
+    const provider = new UrlTemplateImageryProvider({
+      url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      tilingScheme: new WebMercatorTilingScheme(),
+      minimumLevel: 0,
+      maximumLevel: 18,
+      credit: 'Esri, Maxar, Earthstar Geographics',
+    });
+    this.viewer.imageryLayers.addImageryProvider(provider);
   }
 
   private configureScene(): void {
@@ -51,7 +64,7 @@ export class AquaticGlobe {
     scene.fog.density = 0.00015;
     globe.enableLighting = true;
     globe.depthTestAgainstTerrain = false;
-    globe.baseColor = Color.fromCssColorString('#0c2844');
+    globe.baseColor = Color.fromCssColorString('#8fc3e4');
     globe.showGroundAtmosphere = true;
     globe.atmosphereLightIntensity = 18;
     globe.atmosphereRayleighCoefficient = new Cartesian3(0.005, 0.018, 0.045);
