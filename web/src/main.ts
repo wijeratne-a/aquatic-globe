@@ -17,6 +17,12 @@ async function boot(): Promise<void> {
 
   const globe = AquaticGlobe.create(container);
   wireSearch(search, globe);
+  wireZoomButtons(globe);
+}
+
+function wireZoomButtons(globe: AquaticGlobe): void {
+  document.getElementById('zoom-in')?.addEventListener('click', () => globe.zoomBy(1.6));
+  document.getElementById('zoom-out')?.addEventListener('click', () => globe.zoomBy(1 / 1.6));
 }
 
 function wireSearch(search: SpeciesSearch, globe: AquaticGlobe): void {

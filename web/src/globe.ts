@@ -36,12 +36,39 @@ export class AquaticGlobe {
       terrainProvider: new EllipsoidTerrainProvider(),
       baseLayer: false,
       skyAtmosphere: new SkyAtmosphere(),
+      // Render only when something changes (camera move, layer change) —
+      // much smoother + easier on battery than continuous 60fps rendering.
+      requestRenderMode: true,
+      maximumRenderTimeChange: Infinity,
     });
+
+    // Cap pixel ratio: full DPR on 3x phone screens is a big perf cost
+    // for little visible gain on a globe.
+    viewer.resolutionScale = Math.min(window.devicePixelRatio || 1, 1.5);
 
     const globeView = new AquaticGlobe(viewer);
     globeView.configureScene();
     globeView.addBaseImagery();
+    globeView.configureCameraControls();
     return globeView;
+  }
+
+  /** Zoom limits + feel: allow close regional zoom, keep gestures enabled. */
+  private configureCameraControls(): void {
+    const controller = this.viewer.scene.screenSpaceCameraController;
+    controller.enableZoom = true;
+    controller.enableRotate = true;
+    controller.enableTilt = true;
+    controller.minimumZoomDistance = 120_000; // ~120 km — close regional views
+    controller.maximumZoomDistance = 25_000_000;
+  }
+
+  /** Programmatic zoom for the +/- buttons (factor > 1 zooms in). */
+  zoomBy(factor: number): void {
+    const camera = this.viewer.camera;
+    if (factor > 1) camera.zoomIn(camera.positionCartographic.height * (1 - 1 / factor));
+    else camera.zoomOut(camera.positionCartographic.height * (factor - 1));
+    this.viewer.scene.requestRender();
   }
 
   /** Esri World Imagery base map — free, no API key, gives the Google-Earth look. */
@@ -106,6 +133,7 @@ export class AquaticGlobe {
     const layer = this.viewer.imageryLayers.addImageryProvider(provider);
     layer.alpha = fadeIn ? 0 : 0.82;
     this.heatLayer = layer;
+    this.viewer.scene.requestRender();
 
     if (fadeIn) {
       const start = performance.now();
@@ -113,6 +141,7 @@ export class AquaticGlobe {
       const tick = (now: number) => {
         const t = Math.min(1, (now - start) / duration);
         layer.alpha = 0.82 * t;
+        this.viewer.scene.requestRender();
         if (t < 1) requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
