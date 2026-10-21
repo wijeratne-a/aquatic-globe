@@ -4,6 +4,10 @@ export interface SpeciesRecord {
   scientificName: string;
   commonName: string;
   centroid: { lat: number; lon: number };
+  /** Densest part of the range within the SoCal slice (fly-to target). */
+  hotspot?: { lat: number; lon: number } | null;
+  /** Densest part of the range worldwide. */
+  globalHotspot?: { lat: number; lon: number } | null;
   bboxMass: number;
   bboxCells: number;
   taxonomy: {

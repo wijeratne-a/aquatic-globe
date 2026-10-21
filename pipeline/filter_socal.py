@@ -28,6 +28,39 @@ def slug(species_id: str) -> str:
     return species_id.replace(" ", "-").lower()
 
 
+def smoothed_hotspot(cells: list[dict]) -> dict | None:
+    """Densest part of a range: the cell whose ±1° neighborhood holds the
+    most probability mass, refined to the probability-weighted center of
+    that neighborhood. A plain (even weighted) centroid lands mid-ocean
+    for multi-ocean species; the hotspot is where the animal actually is.
+    """
+    if not cells:
+        return None
+    grid = {(round(float(c["lat"]), 2), round(float(c["lon"]), 2)): float(c["prob"]) for c in cells}
+    offsets = [i * 0.5 for i in range(-2, 3)]  # ±1.0° on the 0.5° grid
+
+    def density(lat: float, lon: float) -> float:
+        return sum(
+            grid.get((round(lat + dlat, 2), round(lon + dlon, 2)), 0.0)
+            for dlat in offsets
+            for dlon in offsets
+        )
+
+    peak = max(grid, key=lambda k: (density(*k), grid[k]))
+    plat, plon = peak
+    num_lat = num_lon = den = 0.0
+    for dlat in offsets:
+        for dlon in offsets:
+            p = grid.get((round(plat + dlat, 2), round(plon + dlon, 2)))
+            if p:
+                num_lat += (plat + dlat) * p
+                num_lon += (plon + dlon) * p
+                den += p
+    if den == 0:
+        return {"lat": plat, "lon": plon}
+    return {"lat": num_lat / den, "lon": num_lon / den}
+
+
 def main() -> None:
     db_path = Path(sys.argv[1] if len(sys.argv) > 1 else "/workspace/data/am.db")
     out_dir = Path(sys.argv[2] if len(sys.argv) > 2 else "/workspace/web/public/data")
@@ -98,6 +131,14 @@ def main() -> None:
         total_p = sum(float(c["prob"]) for c in cells)
         clat = sum(float(c["lat"]) * float(c["prob"]) for c in cells) / total_p
         clon = sum(float(c["lon"]) * float(c["prob"]) for c in cells) / total_p
+        strong = [dict(c) for c in cells if float(c["prob"]) >= MIN_CELL_PROB]
+        global_hotspot = smoothed_hotspot(strong)
+        bbox_cells = [
+            c
+            for c in strong
+            if LAT_MIN <= float(c["lat"]) <= LAT_MAX and LON_MIN <= float(c["lon"]) <= LON_MAX
+        ]
+        hotspot = smoothed_hotspot(bbox_cells)
         m = meta_by_id.get(sid, {})
         genus = m.get("Genus") or ""
         epithet = m.get("Species") or ""
@@ -110,6 +151,8 @@ def main() -> None:
                 "scientificName": sci,
                 "commonName": common,
                 "centroid": {"lat": clat, "lon": clon},
+                "hotspot": hotspot,
+                "globalHotspot": global_hotspot,
                 "bboxMass": bbox_stats[sid]["prob_sum"],
                 "bboxCells": bbox_stats[sid]["cell_count"],
                 "taxonomy": {

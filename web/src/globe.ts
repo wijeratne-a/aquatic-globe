@@ -107,7 +107,9 @@ export class AquaticGlobe {
   }
 
   async flyToSpecies(species: SpeciesRecord): Promise<void> {
-    const { lat, lon } = species.centroid;
+    // Fly to the densest part of the range, not the centroid — for
+    // multi-ocean species the centroid sits in empty mid-ocean water.
+    const { lat, lon } = species.hotspot ?? species.globalHotspot ?? species.centroid;
     await this.viewer.camera.flyTo({
       destination: Cartesian3.fromDegrees(lon, lat, 1_800_000),
       duration: 2.4,

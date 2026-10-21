@@ -79,7 +79,9 @@ function wireSearch(search: SpeciesSearch, globe: AquaticGlobe): void {
       ['Family', species.taxonomy.family ?? '—'],
       ['Class', species.taxonomy.class ?? '—'],
       ['SoCal cells', String(species.bboxCells)],
-      ['Range center', `${species.centroid.lat.toFixed(1)}°, ${species.centroid.lon.toFixed(1)}°`],
+      species.hotspot
+        ? (['Range hotspot', `${species.hotspot.lat.toFixed(1)}°, ${species.hotspot.lon.toFixed(1)}°`] as [string, string])
+        : (['Range center', `${species.centroid.lat.toFixed(1)}°, ${species.centroid.lon.toFixed(1)}°`] as [string, string]),
     ];
     for (const [label, value] of facts) {
       const wrap = document.createElement('div');
