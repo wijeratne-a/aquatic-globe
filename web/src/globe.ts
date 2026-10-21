@@ -67,7 +67,7 @@ export class AquaticGlobe {
   zoomBy(factor: number): void {
     const camera = this.viewer.camera;
     if (factor > 1) camera.zoomIn(camera.positionCartographic.height * (1 - 1 / factor));
-    else camera.zoomOut(camera.positionCartographic.height * (factor - 1));
+    else camera.zoomOut(camera.positionCartographic.height * (1 - factor));
     this.viewer.scene.requestRender();
   }
 
