@@ -5,10 +5,12 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const shotsDir = path.join(__dirname, '../../artifacts/screenshots');
 
-test('globe home and species selection', async ({ page }, testInfo) => {
+test('globe home and Atlantic cod heatmap', async ({ page }, testInfo) => {
+  test.setTimeout(120_000);
+
   await page.goto('/');
-  await page.waitForSelector('#cesium-container canvas', { timeout: 60_000 });
-  await page.waitForTimeout(4000);
+  await page.waitForSelector('#cesium-container canvas', { timeout: 90_000 });
+  await page.waitForTimeout(3000);
 
   const viewport = testInfo.project.name;
   await page.screenshot({
@@ -18,17 +20,18 @@ test('globe home and species selection', async ({ page }, testInfo) => {
 
   const search = page.locator('#species-search');
   await search.click();
-  await search.fill('shark');
-  await page.waitForSelector('#search-results li', { timeout: 10_000 });
-  await page.keyboard.press('ArrowDown');
-  await page.keyboard.press('Enter');
+  await search.fill('Gadus morhua');
+  const codResult = page.locator('#search-results li', { hasText: 'Atlantic cod' });
+  await codResult.first().waitFor({ timeout: 15_000 });
+  await codResult.first().click();
 
-  await page.waitForTimeout(4500);
+  await page.waitForSelector('#species-panel:not([hidden])', { timeout: 15_000 });
+  await page.waitForTimeout(3500);
   await expect(page.locator('.illustrative-label')).toBeVisible();
-  await expect(page.locator('#species-panel')).toBeVisible();
+  await expect(page.locator('#species-scientific')).toContainText(/Gadus morhua/i);
 
   await page.screenshot({
-    path: path.join(shotsDir, `${viewport}-species.png`),
+    path: path.join(shotsDir, `${viewport}-atlantic-cod.png`),
     fullPage: false,
   });
 });

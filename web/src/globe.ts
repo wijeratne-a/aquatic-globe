@@ -97,7 +97,7 @@ export class AquaticGlobe {
     globe.atmosphereRayleighCoefficient = new Cartesian3(0.005, 0.018, 0.045);
 
     this.viewer.camera.setView({
-      destination: Cartesian3.fromDegrees(-118.5, 33.5, 4_500_000),
+      destination: Cartesian3.fromDegrees(-30, 25, 12_000_000),
       orientation: {
         heading: CesiumMath.toRadians(0),
         pitch: CesiumMath.toRadians(-55),
@@ -122,10 +122,11 @@ export class AquaticGlobe {
     }
     if (!species) return;
 
+    const tilesBase = (import.meta.env.VITE_TILES_BASE_URL ?? '/tiles').replace(/\/$/, '');
     const provider = new UrlTemplateImageryProvider({
-      url: `/tiles/${species.slug}/{z}/{x}/{y}.webp`,
+      url: `${tilesBase}/${species.slug}/{z}/{x}/{y}.webp`,
       minimumLevel: 0,
-      maximumLevel: 6,
+      maximumLevel: 5,
       tilingScheme: new WebMercatorTilingScheme(),
       credit: 'AquaMaps illustrative range',
     });

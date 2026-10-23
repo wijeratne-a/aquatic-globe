@@ -8,16 +8,24 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const publicDir = path.join(__dirname, '..', 'public');
 const tilesDir = path.join(publicDir, 'tiles');
 const marker = path.join(tilesDir, 'tile-stats.json');
-const archive = path.join(publicDir, 'socal-tiles.tar.gz');
 
+/** Optional local dev: extract first matching tiles archive under public/. */
 async function main() {
   if (existsSync(marker)) return;
-  if (!existsSync(archive)) {
-    console.warn('No tile archive found; heatmaps will be empty until pipeline runs.');
+  const { readdirSync } = await import('node:fs');
+  const archives = readdirSync(publicDir).filter(
+    (f) => f.startsWith('tiles-batch-') && f.endsWith('.tar.gz'),
+  );
+  if (!archives.length) {
+    console.warn('No tile batch archives found; heatmaps empty until pipeline runs.');
     return;
   }
   await mkdir(tilesDir, { recursive: true });
-  execFileSync('tar', ['-xzf', archive, '-C', publicDir], { stdio: 'inherit' });
+  for (const name of archives.sort()) {
+    execFileSync('tar', ['-xzf', path.join(publicDir, name), '-C', publicDir], {
+      stdio: 'inherit',
+    });
+  }
 }
 
 main().catch((err) => {
